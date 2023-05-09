@@ -1,0 +1,17 @@
+{% extends 'site/base.html' %}
+
+{% block content %}
+    <h1>Hello, {{ user.username|default:'Guest' }}</h1>
+
+    <p> Welcome to the Our site</p>
+    <div>
+      {% if user.is_authenticated %}
+          <p><a href="{% url 'logout' %}">Logout</a><p>
+          <p><a href="{% url 'participant_page' %}">All_rating</a><p>
+      {% else %}
+          <p><a href="{% url 'signup_participant' %}">Sign up as a participant</a><p>
+	  <p><a href="{% url 'signup_pm' %}">Sign up as a project manager</a><p>
+          <p><a href="{% url 'login' %}">Login</a><p>
+      {% endif %}
+    </div>
+{% endblock %}
