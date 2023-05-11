@@ -5,7 +5,14 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 from .models import *
 
-menu = ["О сайте", "Добавить статью", "Обратная связь", "Войти"]
+#menu = ["Login", "Registration", "Data", "About"]
+
+menu = [{'title': "Data", 'url_name': 'data'},
+        {'title': "About", 'url_name': 'about'},
+        {'title': "Login", 'url_name': 'login'},
+        {'title': "Registration", 'url_name': 'reg'}]
+
+
 
 def home(request):
     return render(request, 'site/home.html', {'title':'home', 'menu':menu})
@@ -40,5 +47,9 @@ def pm_page(request):
 
 def participant_page(request):
     return render(request, 'site/participant.html')
+
+
+def about(request):
+    return render(request, 'site/about.html')
 
 # Create your views here.
