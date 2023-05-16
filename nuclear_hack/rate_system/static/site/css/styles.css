@@ -42,7 +42,7 @@ ul.mainmenu li {
 }
 ul.mainmenu li.logo {margin: 0;}
 ul.mainmenu li.last {float: right;}
-ul.mainmenu li:nth-last-child(2) {float: right;}
+/*ul.mainmenu li:nth-last-child(2) {float: right;}*/
 
 ul.mainmenu li a {
 	color: #ffffff;
@@ -51,6 +51,7 @@ ul.mainmenu li a {
 ul.mainmenu li a:hover {
 	color: #FFA500;
 }
+
 
 #footer {
 	box-sizing: border-box;
@@ -67,3 +68,4 @@ ul.mainmenu li a:hover {
 	text-decoration: underline;
 	color: #aaa;
 }
+

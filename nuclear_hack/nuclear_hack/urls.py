@@ -23,7 +23,7 @@ from nuclear_hack import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
+    #path('accounts/', include('django.contrib.auth.urls')),
     path('', include('rate_system.urls')),
 ]
 
