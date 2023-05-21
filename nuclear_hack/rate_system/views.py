@@ -19,11 +19,11 @@ menu = [{'title': "Data", 'url_name': 'data'},
 
 
 def home(request):
-    '''if request.user.is_authenticated:
+    if (request.user.is_authenticated):
         return render(request, 'site/home.html', {'title':'home', 'menu':menu})
     else:
-        return redirect('/login/')'''
-    return render(request, 'site/home.html', {'title': 'home', 'menu': menu})
+        return redirect('/login/')
+    #return render(request, 'site/home.html', {'title': 'home', 'menu': menu})
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена</h1>')
