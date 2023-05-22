@@ -14,7 +14,7 @@ from .utils import *
 #menu = ["Login", "Registration", "Data", "About"]
 
 menu = [{'title': "Data", 'url_name': 'data'},
-        {'title': "About", 'url_name': 'about'}]
+        {'title': "Upload", 'url_name': 'upload'}]
 
 
 
@@ -80,4 +80,22 @@ class LoginUser(LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+def upload(request):
+    if request.method == 'POST':
+        form = AddInfForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user_id = request.user.id
+            post.save()
+            return redirect('home')
+    else:
+        form = AddInfForm()
+    return render(request, 'site/upload.html', {
+        'form': form
+    })
+
+def data(request):
+    posts = Criterions.objects.all()
+    return render(request, 'site/data.html', {'posts': posts, 'menu': menu, 'title': 'data'})
 # Create your views here.
